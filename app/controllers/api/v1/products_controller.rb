@@ -3,11 +3,25 @@ class Api::V1::ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    render json: @products
+    render json: @products,
+    each_serializer: Api::V1::ProductsSerializer
   end
 
   def show
-    render json: @product
+    render json: @product,
+    serializer: Api::V1::ProductsSerializer
+  end
+
+  def search
+
+    given_length = params[:length].to_i
+    given_width = params[:width].to_i
+    given_height = params[:height].to_i
+
+    # Find the closest matching product using Euclidean distance
+    closest_product = Product.order("(length - #{given_length})^2 + (width - #{given_width})^2 + (height - #{given_height})^2 ASC").first
+
+    render json: closest_product
   end
 
   def create
