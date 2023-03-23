@@ -10,4 +10,8 @@ class Product
   
   validates :name, presence: true
   validates :length, :width, :height, :weight, numericality: { greater_than: 0 }
+
+  def dimensions
+    "#{length}'l X #{width}'w X #{height}'h (@ #{weight}lbs)"
+  end
 end
