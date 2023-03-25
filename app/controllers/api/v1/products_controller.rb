@@ -17,9 +17,10 @@ class Api::V1::ProductsController < ApplicationController
     given_length = params[:length].to_i
     given_width = params[:width].to_i
     given_height = params[:height].to_i
+    given_weight = params[:weight].to_i
 
     # Find the closest matching product using Euclidean distance
-    closest_product = Product.order("(length - #{given_length})^2 + (width - #{given_width})^2 + (height - #{given_height})^2 ASC").first
+    closest_product = Product.where(weight: {"$gte": given_weight - 1, "$lte": given_weight + 5}).order("(length - #{given_length})^2 + (width - #{given_width})^2 + (height - #{given_height})^2 ASC").first
 
     render json: closest_product
   end
@@ -34,7 +35,7 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def update
+  def edit
     if @product.update(product_params)
       render json: @product
     else
