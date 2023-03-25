@@ -20,7 +20,7 @@ mongosh
 ```
 3. Create the database
 ```
-use sscc_dev 
+use sscc_development 
 ```
 ### Step 2: Start the api
 1. In a separate terminal or command prompt clone the repository to your local machine using Git:
