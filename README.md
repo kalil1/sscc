@@ -5,6 +5,7 @@
 - Ruby
 - MongoDB
 - Faker
+- Rspec
 - FactoryBot Rails
 - Active Model Serializers
 
