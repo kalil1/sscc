@@ -13,7 +13,6 @@
 ### Step 1: Install MongoDB
 1. Install and setup [mongosh(linux)](https://www.cherryservers.com/blog/how-to-install-and-start-using-mongodb-on-ubuntu-20-04)
     1. If you use macOS/Windows [mongosh](https://www.mongodb.com/docs/mongodb-shell/install/#install-mongosh)
-    <!-- 2. Which is numbered -->
     
 2. Use the MongoDB Shell and connect to MongoDB 
 ```sh
